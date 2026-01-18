@@ -1,0 +1,346 @@
+:root{
+  --bg:#0b1220;
+  --panel:#101a2e;
+  --text:#eaf0ff;
+  --muted:#97a7c8;
+  --accent:#7dd3fc;
+  --accent2:#a7f3d0;
+  --border: rgba(255,255,255,.08);
+  --shadow: 0 18px 45px rgba(0,0,0,.35);
+  --r:18px;
+  --max:1120px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1000px 600px at 20% -10%, rgba(125,211,252,.18), transparent 60%),
+    radial-gradient(900px 600px at 90% 10%, rgba(167,243,208,.14), transparent 55%),
+    var(--bg);
+  line-height:1.45;
+}
+
+a{color:inherit; text-decoration:none}
+.container{max-width:var(--max); margin:0 auto; padding: 0 20px;}
+
+.topbar{
+  position: sticky; top:0; z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(11,18,32,.65);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 0; gap:14px;
+}
+
+.brand{display:flex; gap:10px; align-items:center;}
+.logo{
+  width:34px; height:34px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 12px 26px rgba(125,211,252,.18);
+}
+.brandName{font-weight:800}
+.brandSub{font-size:12px; color:var(--muted)}
+
+.menu{display:flex; gap:16px; flex-wrap:wrap}
+.menu a{
+  color:var(--muted); font-size:14px;
+  padding:8px 10px; border-radius: 12px;
+}
+.menu a:hover{background: rgba(255,255,255,.05); color:var(--text)}
+
+.navCtas{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+
+.btn{
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  padding:10px 14px;
+  border-radius: 14px;
+  font-weight:700;
+  box-shadow: 0 10px 20px rgba(0,0,0,.18);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.btn:hover{border-color: rgba(125,211,252,.35)}
+.btn.primary{
+  border:none;
+  color:#06101f;
+  background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,243,208,.85));
+}
+
+.hero{
+  padding: 42px 0 12px;
+  display:grid;
+  grid-template-columns: 1.25fr .85fr;
+  gap: 16px;
+  align-items: stretch;
+}
+.heroCard, .sideCard, .card{
+  background: rgba(16,26,46,.55);
+  border:1px solid var(--border);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+}
+.heroCard{padding: 22px;}
+.sideCard{padding: 18px;}
+
+.pill{
+  display:inline-block;
+  padding:8px 10px;
+  border-radius: 999px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+h1{margin: 12px 0 10px; font-size: clamp(30px, 4vw, 46px); line-height: 1.05;}
+.lead{color: rgba(234,240,255,.86); max-width: 60ch;}
+
+.heroCtas{display:flex; gap:10px; flex-wrap:wrap; margin-top: 16px;}
+
+.stats{
+  margin-top: 16px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.stat{
+  padding: 12px;
+  border-radius: 16px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.03);
+}
+.stat strong{display:block; font-size:14px}
+.stat span{display:block; color:var(--muted); font-size:13px; margin-top:4px}
+
+.kv{display:grid; gap:10px; margin-top: 12px;}
+.k{font-size:12px; color:var(--muted)}
+.v{font-weight:700}
+
+.section{padding: 20px 0;}
+.section h2{margin:0 0 8px; font-size: 22px;}
+.muted{color:var(--muted)}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+.card{padding: 16px;}
+.card h4{margin:0 0 6px}
+.card p{margin:0; color:var(--muted)}
+
+.two{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.profile{display:flex; gap:12px; align-items:flex-start}
+.avatar{
+  width:54px; height:54px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(125,211,252,.25), rgba(167,243,208,.18));
+  border:1px solid rgba(255,255,255,.12);
+  flex: 0 0 auto;
+}
+
+.embed{
+  margin-top: 10px;
+  border-radius: var(--r);
+  border:1px solid var(--border);
+  overflow:hidden;
+  min-height: 420px;
+  background: rgba(0,0,0,.18);
+}
+.embedPlaceholder{
+  height:420px;
+  display:flex; align-items:center; justify-content:center;
+  color: var(--muted);
+}
+
+.row{display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px;}
+.note{
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 16px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.03);
+  color: var(--muted);
+}
+
+.footer{
+  padding: 24px 0 44px;
+  border-top: 1px solid var(--border);
+  margin-top: 18px;
+}
+
+/* ===== Sección Consultorio (tipo sucursal) ===== */
+.branchGrid{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 14px;
+  align-items: stretch;
+}
+.branchPhoto{
+  border-radius: var(--r);
+  overflow:hidden;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.03);
+  box-shadow: var(--shadow);
+  min-height: 360px;
+}
+.branchPhoto img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  filter: saturate(1.05) contrast(1.02);
+}
+.branchInfo{padding: 18px;}
+.branchTitle{margin:10px 0 6px; font-size: 26px;}
+.branchList{margin-top: 12px; display:grid; gap: 10px;}
+.branchItem{
+  padding: 12px;
+  border-radius: 16px;
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.03);
+}
+.miniLink{
+  display:inline-block;
+  margin-top:6px;
+  font-size:13px;
+  color: var(--accent);
+}
+
+/* CTA grande */
+.bigCtaBox{
+  padding: 20px;
+  background:
+    radial-gradient(900px 400px at 20% 0%, rgba(125,211,252,.14), transparent 60%),
+    radial-gradient(900px 400px at 90% 30%, rgba(167,243,208,.12), transparent 55%),
+    rgba(16,26,46,.55);
+}
+
+/* WhatsApp floating */
+.waFloat{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(16,26,46,.85);
+  box-shadow: var(--shadow);
+  display:flex; gap:10px; align-items:center;
+  z-index: 20;
+  backdrop-filter: blur(8px);
+}
+.dot{
+  width:10px; height:10px; border-radius: 99px;
+  background: var(--accent2);
+  box-shadow: 0 0 0 8px rgba(167,243,208,.12);
+}
+
+@media (max-width: 920px){
+  .menu{display:none}
+  .hero{grid-template-columns: 1fr}
+  .stats{grid-template-columns: 1fr}
+  .grid{grid-template-columns: 1fr}
+  .two{grid-template-columns: 1fr}
+  .branchGrid{grid-template-columns:1fr;}
+  .branchPhoto{min-height: 240px;}
+}
+
+
+/* --- FIX: Google Calendar embed se ve transparente/oscuro --- */
+#reservas .card,
+#reservas .card * {
+  filter: none !important;
+}
+
+#reservas .card {
+  opacity: 1 !important; /* por si tenías opacity en .card */
+}
+
+/* wrapper del iframe */
+.embedWrap {
+  position: relative;
+  background: #fff;        /* base clara para el iframe */
+  border-radius: 16px;
+  overflow: hidden;        /* recorta bordes */
+  isolation: isolate;      /* evita mezclas raras con overlays */
+}
+
+.gcalFrame {
+  display: block;
+  width: 100%;
+  height: 650px;           /* ajustá si querés más alto */
+  border: 0;
+  background: #fff;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* por si tu template mete un overlay en cards/sections */
+#reservas .card::before,
+#reservas .card::after {
+  content: none !important;
+}
+
+.avatar{
+  width: 64px;
+  height: 64px;
+  border-radius: 18px; /* igual que tu estilo */
+  overflow: hidden;
+  flex: 0 0 64px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.avatarImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* recorta lindo sin deformar */
+  display: block;
+}
+
+.logoImg{
+  width:34px;
+  height:34px;
+  border-radius:12px;
+  object-fit: cover;
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow: 0 12px 26px rgba(125,211,252,.18);
+  background: rgba(255,255,255,.04);
+}
+
+.sideLogoBottom{
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.sideLogoImg{
+  width: 85%;
+  max-width: 260px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 28px rgba(0,0,0,.35));
+}
