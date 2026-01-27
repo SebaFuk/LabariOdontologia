@@ -265,40 +265,11 @@ h1{margin: 12px 0 10px; font-size: clamp(30px, 4vw, 46px); line-height: 1.05;}
 
 
 /* --- FIX: Google Calendar embed se ve transparente/oscuro --- */
-#reservas .card,
-#reservas .card * {
-  filter: none !important;
-}
 
-#reservas .card {
-  opacity: 1 !important; /* por si tenías opacity en .card */
-}
+
+
 
 /* wrapper del iframe */
-.embedWrap {
-  position: relative;
-  background: #fff;        /* base clara para el iframe */
-  border-radius: 16px;
-  overflow: hidden;        /* recorta bordes */
-  isolation: isolate;      /* evita mezclas raras con overlays */
-}
-
-.gcalFrame {
-  display: block;
-  width: 100%;
-  height: 650px;           /* ajustá si querés más alto */
-  border: 0;
-  background: #fff;
-  opacity: 1 !important;
-  filter: none !important;
-}
-
-/* por si tu template mete un overlay en cards/sections */
-#reservas .card::before,
-#reservas .card::after {
-  content: none !important;
-}
-
 .avatar{
   width: 64px;
   height: 64px;
@@ -344,3 +315,289 @@ h1{margin: 12px 0 10px; font-size: clamp(30px, 4vw, 46px); line-height: 1.05;}
   object-fit: contain;
   filter: drop-shadow(0 18px 28px rgba(0,0,0,.35));
 }
+/* ===== Selector de sede (topbar) ===== */
+.sedePicker{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding: 8px 10px;
+  border-radius: 14px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+}
+.sedeLabel{color: var(--muted); font-size:13px; font-weight:700;}
+.sedeSelect{
+  color: var(--text);
+  background: rgba(0,0,0,.25);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+  padding: 8px 10px;
+  outline: none;
+}
+
+/* ===== Tabs (Sedes / Contacto) ===== */
+.tabs{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top: 12px;
+}
+.tabs.small{margin-top:0; justify-content:flex-end;}
+.tab{
+  cursor:pointer;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-weight: 800;
+}
+.tabs.small .tab{padding:8px 10px; font-size:13px;}
+.tab.active{
+  border:none;
+  color:#06101f;
+  background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,243,208,.85));
+}
+
+/* ===== Sedes ===== */
+.sedePanel{display:none; margin-top: 14px;}
+.sedePanel.active{display:block;}
+.branchPhoto.placeholder{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.phText{
+  color: var(--muted);
+  font-weight: 800;
+  padding: 18px;
+  text-align:center;
+}
+
+.miniNote{
+  padding: 12px;
+  border-radius: 16px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  color: var(--muted);
+}
+.gallery2{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+.galleryItem{
+  margin:0;
+  border-radius: 16px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+}
+.galleryItem img{
+  width:100%;
+  height: 160px;
+  object-fit: cover;
+  display:block;
+}
+.galleryItem figcaption{
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.galleryPlaceholder{
+  height: 200px;
+  border-radius: 16px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+/* ===== Obras sociales ===== */
+.chipList{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap: 10px;
+}
+.chip{
+  padding: 10px 12px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  color: var(--text);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+/* ===== Antes y después ===== */
+.baGrid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+.baTwo{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.baBox{
+  height: 170px;
+  border-radius: 16px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+  padding: 10px;
+}
+.baTag{
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+}
+
+@media (max-width: 920px){
+  .tabs.small{justify-content:flex-start;}
+  .gallery2{grid-template-columns: 1fr;}
+  .baGrid{grid-template-columns: 1fr;}
+  .baTwo{grid-template-columns: 1fr;}
+}
+
+/* ===== Contacto ===== */
+.contactTop{
+  display:flex;
+  justify-content:space-between;
+  gap: 14px;
+  flex-wrap:wrap;
+  align-items:flex-start;
+}
+.contactActions{min-width: 280px;}
+.mapWrap{margin-top: 12px; border-radius: 16px; overflow:hidden; border:1px solid rgba(255,255,255,.10);}
+.mapFrame{display:block;}
+
+
+/* ===== Antes y después ===== */
+.casesGrid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.caseHead{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.caseHead h3{
+  margin:0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.caseTag{
+  font-size: 12px;
+  color: var(--muted);
+  border:1px solid var(--border);
+  background: rgba(255,255,255,.03);
+  padding: 6px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.baGrid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.baItem{
+  margin:0;
+  position:relative;
+  border-radius: 16px;
+  overflow:hidden;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,.18);
+}
+
+.baItem img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+.baItem figcaption{
+  position:absolute;
+  left:10px;
+  bottom:10px;
+  font-size:12px;
+  font-weight:800;
+  padding:6px 10px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(11,18,32,.70);
+  color: var(--text);
+  backdrop-filter: blur(6px);
+}
+
+.caseNote{
+  margin: 10px 0 0;
+  font-size: 13px;
+}
+
+@media (max-width: 920px){
+  .casesGrid{grid-template-columns: 1fr;}
+  .baGrid{grid-template-columns: 1fr;}
+  .baItem img{aspect-ratio: 16 / 10;}
+}
+
+/* ===== FAQ ===== */
+.faqGrid{
+  display:grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+.faqItem{
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  padding: 12px 14px;
+}
+.faqItem summary{
+  cursor:pointer;
+  font-weight: 900;
+  list-style: none;
+}
+.faqItem summary::-webkit-details-marker{display:none;}
+.faqItem summary::after{
+  content: "＋";
+  float:right;
+  color: var(--muted);
+  font-weight: 900;
+}
+.faqItem[open] summary::after{
+  content: "－";
+}
+.faqBody{
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.faqBody p{margin:0;}
